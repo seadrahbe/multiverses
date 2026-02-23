@@ -1,5 +1,5 @@
-document.getElementById("poem-form").onsubmit = () => {
-  
+document.getElementById("submit-form").onsubmit = () => {
+
   clearErrors();
 
   // Validate author
@@ -13,6 +13,13 @@ document.getElementById("poem-form").onsubmit = () => {
   let title = document.getElementById("title").value.trim();
   if(!title) {
       document.getElementById("err-title").style.display = "block";
+      isValid = false;
+  }
+
+  // Validate poem
+  let poem = document.getElementById("poem").value.trim();
+  if(!poem) {
+      document.getElementById("err-poem").style.display = "block";
       isValid = false;
   }
 
