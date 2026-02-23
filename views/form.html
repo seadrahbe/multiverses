@@ -14,12 +14,14 @@
             <fieldset>
                 <label for = "author">
                     Author: 
-                </label>
+                </label> 
+                <span class = "err" id = "err-author">Auther is required. If unknown, put "unknown".</span>
                 <input type = "text" id = "author" name = "author" />
 
                 <label for = "title">
                     Title: 
                 </label>
+                <span class = "err" id = "err-title">Title is required. If unknown, put "unknown".</span>
                 <input type = "text" id = "title" name = "title" />
 
                 <label for = "tags">
@@ -34,6 +36,7 @@
             </fieldset>
 
             <label for = "poem">Poem:</label>
+            <span class = "err" id = "err-poem">Please enter a poem.</span>
             <textarea rows = "5" id = "poem" name = "poem"></textarea>
 
             <button type = "submit" id = "submit_button">Submit</button>
