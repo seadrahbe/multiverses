@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 });
 
+// Form route
+app.get('/submit-poem', (req, res) => {
+    res.sendFile(`${import.meta.dirname}/views/form.html`);
+});
+
 // Start server and listen on designated port
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
