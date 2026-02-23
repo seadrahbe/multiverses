@@ -1,50 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/form.css" type="text/css" />
     <title>Form</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-
+      <h1 id="main_title">MultiVerses</h1>
     </header>
     <main>
-        <form id = "submit_form" method = "post">
-            <fieldset>
-                <label for = "author">
-                    Author: 
-                </label> 
-                <span class = "err" id = "err-author">Author is required. If unknown, put "unknown".</span>
-                <input type = "text" id = "author" name = "author" />
+      <form id="submit_form" method="post">
+        <fieldset class="poem_info">
+          <!-- <label for="author"> Author: </label> -->
+          <!-- In order to not include labels, but still be accesible, you have to include an aria
+            label inside of the input -->
+          <span class="err" id="err-author"
+            >Author is required. If unknown, put "unknown".</span
+          >
+          <input
+            type="text"
+            id="author"
+            name="author"
+            placeholder="Author:"
+            aria-label="Author"
+          />
 
-                <label for = "title">
-                    Title: 
-                </label>
-                <span class = "err" id = "err-title">Title is required. If unknown, put "unknown".</span>
-                <input type = "text" id = "title" name = "title" />
+          <!-- <label for="title"> Title: </label> -->
+          <span class="err" id="err-title"
+            >Title is required. If unknown, put "unknown".</span
+          >
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Title:"
+            aria-label="Title"
+          />
+        </fieldset>
+        <fieldset class="poem_info row_2">
+          <!-- <label for="tags"> Tags: </label> -->
+          <input
+            type="text"
+            id="tags"
+            name="tags"
+            placeholder="#Tags"
+            aria-label="Tags"
+          />
 
-                <label for = "tags">
-                    Tags: 
-                </label>
-                <input type = "text" id = "tags" name = "tags" />
+          <!-- <label for="date"> Date of Creation: </label> -->
+          <input
+            type="date"
+            id="date"
+            name="date"
+            aria-label="Date of Creation"
+          />
+        </fieldset>
 
-                <label for = "date">
-                    Date of Creation:
-                </label>
-                <input type = "date" id = "date" name = "date" />
-
-                <label for = "poem">Poem:</label>
-                <span class = "err" id = "err-poem">Please enter a poem.</span>
-                <textarea rows = "5" id = "poem" name = "poem"></textarea>
-
-            </fieldset>
-
-            <button type = "submit" id = "submit_button">Submit</button>
-        </form>
+        <fieldset id="poem_content">
+          <!-- <label for="poem">Poem:</label> -->
+          <span class="err" id="err-poem">Please enter a poem.</span>
+          <textarea
+            rows="5"
+            id="poem"
+            name="poem"
+            placeholder="Write your beautiful magic here..."
+            aria-label="Poem:"
+          ></textarea>
+        </fieldset>
+        <button type="submit" id="submit_button">Submit</button>
+      </form>
     </main>
-    <footer>
-
-    </footer>
-</body>
+    <footer></footer>
+  </body>
 </html>
