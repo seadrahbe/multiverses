@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2d2d30;
+  color: #fff;
+}
+
+#main-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: lightblue;
+}
+
+#poems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#create-poem-button {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
