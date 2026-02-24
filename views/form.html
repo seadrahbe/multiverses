@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/form.css" type="text/css" />
+    <script src="/js/form.js" defer></script>
     <title>Form</title>
   </head>
   <body>
@@ -41,13 +42,17 @@
         </fieldset>
         <fieldset class="poem_info row_2">
           <!-- <label for="tags"> Tags: </label> -->
+        <div>
           <input
             type="text"
             id="tags"
             name="tags"
             placeholder="#Tags"
             aria-label="Tags"
-          />
+            autocomplete="off"
+          /> 
+          </div id="tag-wrapper">
+
 
           <!-- <label for="date"> Date of Creation: </label> -->
           <input
@@ -60,6 +65,7 @@
 
         <fieldset id="poem_content">
           <!-- <label for="poem">Poem:</label> -->
+           <div id="tag-container"></div>
           <span class="err" id="err-poem">Please enter a poem.</span>
           <textarea
             rows="5"

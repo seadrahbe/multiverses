@@ -54,6 +54,34 @@ textarea {
   gap: 0.5rem;
 }
 
+.tag{
+  pointer-events: none;
+  background-color: #242424;
+  color: white;
+  padding: 6px;
+  margin: 5px;
+}
+
+.tag::before {
+  pointer-events: all;
+  display: inline-block;
+  content: 'x';  
+  height: 20px;
+  width: 20px;
+  margin-right: 6px;
+  text-align: center;
+  color: #ccc;
+  background-color: #111;
+  cursor: pointer;
+}
+
+#tag-container {
+  font-size: 0.8rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
 textarea {
   resize: vertical;
   min-height: 30vh;
@@ -72,9 +100,11 @@ button[type="submit"] {
   font-weight: 500;
   width: 100%;
 }
+
 .err {
   color: red;
   display: none;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 960px) {

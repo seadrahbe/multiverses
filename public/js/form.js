@@ -1,4 +1,38 @@
-document.getElementById("submit-form").onsubmit = () => {
+/* TAGS FUNCTIONALITY - S*/
+let input = document.querySelector('#tags');
+let container = document.querySelector('#tag-container')
+let hashtagArray = [];
+
+input.addEventListener('keyup', () => {
+    if (event.code === 'Space' && input.value.length > 0) {
+        var text = document.createTextNode(input.value);
+        var p = document.createElement('p');
+        container.appendChild(p);
+        p.appendChild(text);
+        p.classList.add('tag');
+        input.value = '';
+        
+        let deleteTags = document.querySelectorAll('.tag');
+        
+        for(let i = 0; i < deleteTags.length; i++) {
+        deleteTags[i].addEventListener('click', () => {
+            container.removeChild(deleteTags[i]);
+        });
+        }
+    }
+});
+
+/* PREVENTS ENTER KEY PRESS FROM SUBMITTING FORM -S */
+ let val = document.getElementById("submit_form");
+    val.onkeypress = function (key) {
+        let btn = 0 || key.keyCode || key.charCode;
+        if (btn == 13) {
+            key.preventDefault();
+        }
+} 
+
+ /* FORM SUBMIT INPUT VALIDATION  - S*/
+document.getElementById("submit_form").onsubmit = () => {
 
   clearErrors();
 
@@ -33,3 +67,4 @@ function clearErrors() {
         errors[i].style.display = "none";
     }
 }
+
