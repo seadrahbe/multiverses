@@ -54,7 +54,7 @@ textarea {
   gap: 0.5rem;
 }
 
-.tag{
+.tag {
   pointer-events: none;
   background-color: #242424;
   color: white;
@@ -65,7 +65,7 @@ textarea {
 .tag::before {
   pointer-events: all;
   display: inline-block;
-  content: 'x';  
+  content: "x";
   height: 20px;
   width: 20px;
   margin-right: 6px;
@@ -80,7 +80,6 @@ textarea {
   display: flex;
   flex-flow: row wrap;
 }
-
 
 textarea {
   resize: vertical;
