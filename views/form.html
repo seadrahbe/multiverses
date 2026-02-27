@@ -12,14 +12,14 @@
       <h1 id="main_title">MultiVerses</h1>
     </header>
     <main>
-      <form id="submit_form" method="post">
+      <form id="submit_form" action="/submit-poem" method="post">
         <fieldset class="poem_info">
           <!-- <label for="author"> Author: </label> -->
           <!-- In order to not include labels, but still be accesible, you have to include an aria
             label inside of the input -->
-          <span class="err" id="err-author"
-            >Author is required. If unknown, put "unknown".</span
-          >
+          <span class="err" id="err-author">
+            Author is required. If unknown, put "unknown".
+            </span>
           <input
             type="text"
             id="author"
@@ -29,9 +29,8 @@
           />
 
           <!-- <label for="title"> Title: </label> -->
-          <span class="err" id="err-title"
-            >Title is required. If unknown, put "unknown".</span
-          >
+          <span class="err" id="err-title">
+            Title is required. If unknown, put "unknown".</span>
           <input
             type="text"
             id="title"
@@ -66,7 +65,9 @@
         <fieldset id="poem_content">
           <!-- <label for="poem">Poem:</label> -->
            <div id="tag-container"></div>
-          <span class="err" id="err-poem">Please enter a poem.</span>
+          <span class="err" id="err-poem">
+            Please enter a poem.
+          </span>
           <textarea
             rows="5"
             id="poem"
