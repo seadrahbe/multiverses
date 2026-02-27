@@ -19,7 +19,7 @@
             label inside of the input -->
           <span class="err" id="err-author">
             Author is required. If unknown, put "unknown".
-            </span>
+          </span>
           <input
             type="text"
             id="author"
@@ -30,7 +30,8 @@
 
           <!-- <label for="title"> Title: </label> -->
           <span class="err" id="err-title">
-            Title is required. If unknown, put "unknown".</span>
+            Title is required. If unknown, put "unknown".</span
+          >
           <input
             type="text"
             id="title"
@@ -41,17 +42,16 @@
         </fieldset>
         <fieldset class="poem_info row_2">
           <!-- <label for="tags"> Tags: </label> -->
-        <div>
-          <input
-            type="text"
-            id="tags"
-            name="tags"
-            placeholder="#Tags"
-            aria-label="Tags"
-            autocomplete="off"
-          /> 
-          </div id="tag-wrapper">
-
+          <div>
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              placeholder="#Tags"
+              aria-label="Tags"
+              autocomplete="off"
+            />
+          </div>
 
           <!-- <label for="date"> Date of Creation: </label> -->
           <input
@@ -64,10 +64,8 @@
 
         <fieldset id="poem_content">
           <!-- <label for="poem">Poem:</label> -->
-           <div id="tag-container"></div>
-          <span class="err" id="err-poem">
-            Please enter a poem.
-          </span>
+          <div id="tag-container"></div>
+          <span class="err" id="err-poem"> Please enter a poem. </span>
           <textarea
             rows="5"
             id="poem"
