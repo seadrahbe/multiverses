@@ -13,6 +13,8 @@ app.use(express.static('public'));
 // "Middleware" allows express to read form data and store it in req.body
 app.use(express.urlencoded({ extended: true }));
 
+const poems = [];
+
 // Define our main route ('/')
 // Default route
 app.get('/', (req, res) => {
@@ -22,6 +24,20 @@ app.get('/', (req, res) => {
 // Form route
 app.get('/submit-poem', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/form.html`);
+});
+
+app.post('/submit-poem', (req, res) => {
+    const poem = {
+        author: req.body.author,
+        title: req.body.title,
+        tags: req.body.tags,
+        date: req.body.date,
+        poem: req.body.poem
+    };
+
+    poems.push(poem);
+
+    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
 });
 
 // Start server and listen on designated port
