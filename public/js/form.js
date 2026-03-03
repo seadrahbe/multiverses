@@ -41,7 +41,9 @@ input.addEventListener('keyup', () => {
  /* FORM SUBMIT INPUT VALIDATION  - S*/
 document.getElementById("submit_form").onsubmit = () => {
 
-  clearErrors();
+    let isValid = true;
+
+    clearErrors();
 
   // Validate author
   let author = document.getElementById("author").value.trim();
@@ -73,5 +75,6 @@ function clearErrors() {
     for (let i = 0; i<errors.length; i++) {
         errors[i].style.display = "none";
     }
+    
 }
 
