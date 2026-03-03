@@ -31,12 +31,13 @@ app.get("/submit-poem", (req, res) => {
 
 // Poem submission route
 app.post('/submit-poem', (req, res) => {
+
     const poem = {
         author: req.body.author,
         title: req.body.title,
-        tags: req.body.tags,
+        tags: req.body.tags ? req.body.tags : "none",
         date: req.body.date,
-        poem: req.body.poem,
+        poem_body: req.body.poem,
         timestamp: new Date()
     };
 

@@ -7,7 +7,27 @@
 </head>
 <body>
 
-  <h1>Form data to be displayed here!</h1>
+  <header>
+    <h1>Submission History</h1>
+  </header>
+
+  <main>
+    <div id="submissions">
+
+      <% poems.forEach(poem => { %>
+        <section>
+          <ul>
+            <li><strong>Title:</strong> <%= poem.title %></li>
+            <li><strong>Author:</strong> <%= poem.author %></li>
+            <li><strong>Tags:</strong> <%= poem.tags %></li>
+            <li><strong>Date Written:</strong> <%= poem.date %></li>
+            <li><strong>Poem:</strong> <pre><%= poem.poem_body %></pre></li>
+            <li><strong>Timestamp:</strong> <%= poem.timestamp %></li>
+          </ul>
+        </section>
+      <% }) %>
+    </div>
+  </main>
   
 </body>
 </html>

@@ -12,9 +12,27 @@ addEventListener("DOMContentLoaded", (event) => {
 
 })
 
+/* PREVENTS TAB FROM GOING TO NEXT FORM OPTION  - S */
+document.getElementById('poem').addEventListener('keydown', function(e) {
+  if (e.key == 'Tab') {
+    e.preventDefault();
+    var start = this.selectionStart;
+    var end = this.selectionEnd;
+
+    // set textarea value to: text before caret + tab + text after caret
+    this.value = this.value.substring(0, start) +
+      "\t" + this.value.substring(end);
+
+    // put caret at right position again
+    this.selectionStart =
+      this.selectionEnd = start + 1;
+  }
+});
+
 
 /* TAGS FUNCTIONALITY VARIABLES + EVENT LISTENER - S*/
 let input = document.querySelector('#tags');
+let hiddenInput = document.getElementById('hidden-tag-input')
 let container = document.querySelector('#tag-container')
 let hashtagArray = [];
 
@@ -65,6 +83,12 @@ document.getElementById("submit_form").onsubmit = () => {
       document.getElementById("err-poem").style.display = "block";
       isValid = false;
   }
+
+  // Add tags
+    var children = container.children;
+    for (var i = 0; i < children.length; i++) {
+        hiddenInput.value += (children[i].innerHTML + " ");
+    }
 
   return isValid;
 

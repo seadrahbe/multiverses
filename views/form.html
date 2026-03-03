@@ -46,7 +46,6 @@
             <input
               type="text"
               id="tags"
-              name="tags"
               placeholder="#Tags"
               aria-label="Tags"
               autocomplete="off"
@@ -62,9 +61,11 @@
           />
         </fieldset>
 
+        <div id="tag-container"></div>
+        <input type=text id="hidden-tag-input" name = 'tags'></input>
+
         <fieldset id="poem_content">
           <!-- <label for="poem">Poem:</label> -->
-          <div id="tag-container"></div>
           <span class="err" id="err-poem"> Please enter a poem. </span>
           <textarea
             rows="5"
