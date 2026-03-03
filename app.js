@@ -10,6 +10,9 @@ const PORT = 3009;
 // Enable static file serving
 app.use(express.static("public"));
 
+// Set view engine to EJS
+app.set('view engine', 'ejs');
+
 // "Middleware" allows express to read form data and store it in req.body
 app.use(express.urlencoded({ extended: true }));
 
