@@ -26,18 +26,25 @@ app.get("/submit-poem", (req, res) => {
   res.sendFile(`${import.meta.dirname}/views/form.html`);
 });
 
+// Poem submission route
 app.post('/submit-poem', (req, res) => {
     const poem = {
         author: req.body.author,
         title: req.body.title,
         tags: req.body.tags,
         date: req.body.date,
-        poem: req.body.poem
+        poem: req.body.poem,
+        timestamp: new Date()
     };
 
     poems.push(poem);
 
     res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+});
+
+// Admin route
+app.get("/admin", (req, res) => {
+  res.render('admin', { poems })
 });
 
 // Start server and listen on designated port
