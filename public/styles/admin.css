@@ -6,5 +6,34 @@
 
 body {
   background-color: #2d2d30;
-  color: #fff;
+}
+
+main {
+  width: 90%;
+  background-color: white;
+  margin: auto;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+}
+
+#submissions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  flex: 
+}
+
+.submission {
+  padding: 1rem;
+  border: 1px black solid;
+}
+
+ul {
+  list-style: none;
 }
