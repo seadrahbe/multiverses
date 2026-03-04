@@ -7,6 +7,7 @@
 body {
   background-image: url('../imgs/space.gif');
   background-size: 100% 100%;
+
   height: 100vh;
 }
 
@@ -52,7 +53,6 @@ div p {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.5rem;
-  flex: 
 }
 
 .submission {
