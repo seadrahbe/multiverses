@@ -14,7 +14,7 @@
   <header>
     <nav>
       <h1>Submission History</h1>
-      <h2>(Sorted Descending Order)</h2>
+      <h2>(Most Recent First)</h2>
       <a href="/">Home</a>
       <a href="/submit-poem">Submit Poem</a>
     </nav>
@@ -23,6 +23,12 @@
   <main>
     <div id="submissions">
 
+      <%# POPULATING POEMS %>
+      <%# Checks if poems obj. has entries. If has entries, creates
+      a .submission section and populates fields with data, oldest to
+      most recent. If no entries, displays "No submissions found."
+      Submission # value populated from function in admin.js file. -S
+      %>
       <% if (Object.keys(poems).length != 0) { %>
         
         <% for (let i = poems.length - 1; i >= 0; i--) { %>
