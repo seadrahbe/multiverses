@@ -7,28 +7,46 @@
   <title>Admin</title>
 
   <link rel="stylesheet" href="styles/admin.css" type="text/css" />
+  <script src= "/js/admin.js" defer></script>
 </head>
 <body>
 
   <header>
-    <h1>Submission History</h1>
+    <nav>
+      <h1>Submission History</h1>
+      <h2>(Sorted Descending Order)</h2>
+      <a href="/">Home</a>
+      <a href="/submit-poem">Submit Poem</a>
+    </nav>
   </header>
 
   <main>
     <div id="submissions">
 
-      <% poems.forEach(poem => { %>
-        <section>
+      <% if (Object.keys(poems).length != 0) { %>
+        
+        <% for (let i = poems.length - 1; i >= 0; i--) { %>
+        <section class = "submission">
+          <h3>Submission # </h3>
           <ul>
-            <li><strong>Title:</strong> <%= poem.title %></li>
-            <li><strong>Author:</strong> <%= poem.author %></li>
-            <li><strong>Tags:</strong> <%= poem.tags %></li>
-            <li><strong>Date Written:</strong> <%= poem.date %></li>
-            <li><strong>Poem:</strong> <pre><%= poem.poem_body %></pre></li>
-            <li><strong>Timestamp:</strong> <%= poem.timestamp %></li>
+            <li><strong>Title:</strong> <%= poems[i].title %></li>
+            <li><strong>Author:</strong> <%= poems[i].author %></li>
+            <li><strong>Tags:</strong> <%= poems[i].tags %></li>
+            <li><strong>Date Written:</strong> <%= poems[i].date %></li>
+            <li><strong>Poem:</strong> <pre><%= poems[i].poem_body %></pre></li>
+            <li><strong>Timestamp:</strong> <%= poems[i].timestamp %></li>
           </ul>
         </section>
-      <% }) %>
+      <% } %>
+
+      <% } else { %>
+
+        <div id = "not-found">
+          <p>No submissions found.</p>
+        </div>
+
+      <% } %>
+
     </div>
   </main>
   
