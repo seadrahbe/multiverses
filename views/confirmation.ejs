@@ -13,9 +13,11 @@
     <p>Title: <%= poem.title %></p>
     <p>Date of Writing: <%= poem.date %></p>
     <p>Date of Submission: <%= poem.timestamp %></p>
-    <p>Tags: <%= poem.tags %></p>
+    <p>Tags: <%= Array.isArray(poem.tags) ?
+            poem.tags.join(', ') :
+            "None" %></p>
     <p>Poem:</p>
-    <p><pre><%= poem.poem_body %></pre></p>
+    <pre><%= poem.poem_body %></pre>
 
     <a href="/">Return to Home Page</a>
   </body>
