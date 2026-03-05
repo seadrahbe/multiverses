@@ -4,15 +4,19 @@
   box-sizing: border-box;
 }
 
-.nav-links {
+nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 8vh;
+  /* padding: 1 2rem; */
+}
+
+.nav-links {
+  display: flex;
   list-style: none;
   gap: 1.4rem;
-  height: 8vh;
   margin-bottom: 0;
-  padding: 1 2rem;
 }
 
 .nav-links a {

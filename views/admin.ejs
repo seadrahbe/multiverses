@@ -12,17 +12,16 @@
 <body>
   <%- include('partials/nav.ejs') %>
   <header>
-    <nav>
-      <h1>Submission History</h1>
-      <h2>(Most Recent First)</h2>
+    <!-- <nav>
       <a href="/">Home</a>
       <a href="/submit-poem">Submit Poem</a>
-    </nav>
+    </nav> -->
   </header>
 
   <main>
+    <h1>Submission History</h1>
+    <h2>(Most Recent First)</h2>
     <div id="submissions">
-
       <%# POPULATING POEMS %>
       <%# Checks if poems obj. has entries. If has entries, creates
       a .submission section and populates fields with data, oldest to
