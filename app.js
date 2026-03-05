@@ -31,10 +31,18 @@ app.get("/submit-poem", (req, res) => {
 
 // Poem submission route
 app.post("/submit-poem", (req, res) => {
+  const rawTags = req.body.tags ?? "";
+  const tagsString = Array.isArray(rawTags) ? rawTags.join(",") :
+    String(rawTags);
+  const tags = tagsString
+  .split(",")
+  .map(t => t.trim())
+  .filter(Boolean);
+
   const poem = {
     author: req.body.author,
     title: req.body.title,
-    tags: req.body.tags ? req.body.tags : "none",
+    tags, 
     date: req.body.date,
     poem_body: req.body.poem,
     timestamp: new Date()

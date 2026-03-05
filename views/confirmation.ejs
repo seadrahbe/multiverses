@@ -13,9 +13,7 @@
     <p>Title: <%= poem.title %></p>
     <p>Date of Writing: <%= poem.date %></p>
     <p>Date of Submission: <%= poem.timestamp %></p>
-    <p>Tags: <%= Array.isArray(poem.tags) ?
-            poem.tags.join(', ') :
-            "None" %></p>
+    <p>Tags: <%= poem.tags.length ? poem.tags.join(", ") : "none" %></p>
     <p>Poem:</p>
     <pre><%= poem.poem_body %></pre>
 
