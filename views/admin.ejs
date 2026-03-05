@@ -10,17 +10,17 @@
   <script src= "/js/admin.js" defer></script>
 </head>
 <body>
-  <%- include('partials/nav.ejs') %>
   <header>
+    <%- include('partials/nav.ejs') %>
     <!-- <nav>
       <a href="/">Home</a>
       <a href="/submit-poem">Submit Poem</a>
     </nav> -->
+    <h1>Submission History</h1>
+    <h2>(Most Recent First)</h2>
   </header>
 
   <main>
-    <h1>Submission History</h1>
-    <h2>(Most Recent First)</h2>
     <div id="submissions">
       <%# POPULATING POEMS %>
       <%# Checks if poems obj. has entries. If has entries, creates
