@@ -5,6 +5,11 @@ body {
   color: white;
 }
 
+#main-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
 .confirmation {
   margin-top: 2rem;
   max-width: 600px;
