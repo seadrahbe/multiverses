@@ -31,13 +31,14 @@ document.getElementById('poem').addEventListener('keydown', function(e) {
 
 
 /* TAGS FUNCTIONALITY VARIABLES + EVENT LISTENER - S*/
+
 let input = document.querySelector('#tags');
 let hiddenInput = document.getElementById('hidden-tag-input')
 let container = document.querySelector('#tag-container')
 let hashtagArray = [];
 
 input.addEventListener('keyup', () => {
-    if (event.code === 'Space' && input.value.length > 0) {
+    if ((event.code === 'Space' ||  event.code === 'Enter') && input.value.length > 0) {
         var text = document.createTextNode(input.value);
         var p = document.createElement('p');
         container.appendChild(p);
