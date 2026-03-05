@@ -5,16 +5,27 @@
 }
 
 body {
-  background-color: #2d2d30;
+  background-image: url('../imgs/space.gif');
+  background-size: 100% 100%;
   color: #fff;
   height: 100vh;
+}
+
+main {
+  background-color: rgb(154, 151, 156);
+  max-width: 70%;
+  margin: auto;
+  min-height: 70%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  border-radius: 10px;
 }
 
 #main-title {
   font-size: 3rem;
   text-align: center;
   margin-top: 1rem;
-  margin-bottom: 2rem;
 }
 
 a {
