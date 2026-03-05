@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="styles/form.css" type="text/css" />
     <script src="/js/form.js" defer></script>
     <title>Poem</title>
@@ -10,6 +11,7 @@
   <body>
     <header>
       <h1 id="main_title">MultiVerses</h1>
+      <%- include('partials/nav.ejs') %>
     </header>
     <main>
       <form id="submit_form" action="/submit-poem" method="post">
