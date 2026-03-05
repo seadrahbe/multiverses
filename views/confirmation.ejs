@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Confirmation</title>
-    <link rel="stylesheet" href="/styles/confirmation.css" type ="text/css" />
+
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/confirmation.css" type="text/css" />
   </head>
   <body>
-    <h1>Thank you for submitting your poem, <%= poem.author %>!</h1>
+    <header>
+      <h1 id="main-title">MultiVersees</h1>
+      <%- include('partials/nav.ejs') %>
+    </header>
+    <main class="confirmation">
+      <h1>Thank you for submitting your poem, <%= poem.author %>!</h1>
 
     <p>Author: <%= poem.author %></p>
     <p>Title: <%= poem.title %></p>
@@ -17,6 +24,7 @@
     <p>Poem:</p>
     <pre><%= poem.poem_body %></pre>
 
-    <a href="/">Return to Home Page</a>
+      <a href="/">Return to Home Page</a>
+    </main>
   </body>
 </html>

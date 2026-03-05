@@ -54,3 +54,34 @@ a {
   width: 4rem;
   height: 4rem;
 }
+
+.poem {
+  background-color: white;
+  color: black;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.poem-info li {
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.poem-title {
+  font-size: 2rem;
+}
+
+
+.poem-body-home {
+  margin-bottom: 0.5rem;
+}
+
+.poem-tags {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.poem-info, .poem-tags {
+  list-style: none;
+}
