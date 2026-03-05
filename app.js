@@ -37,7 +37,7 @@ app.post("/submit-poem", (req, res) => {
     tags: req.body.tags ? req.body.tags : "none",
     date: req.body.date,
     poem_body: req.body.poem,
-    timestamp: new Date(),
+    timestamp: new Date()
   };
 
   poems.push(poem);
