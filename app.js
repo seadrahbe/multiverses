@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 
 // Form route
 app.get("/submit-poem", (req, res) => {
-  res.sendFile(`${import.meta.dirname}/views/form.html`);
+  res.render("form");
 });
 
 // Poem submission route
@@ -42,7 +42,7 @@ app.post("/submit-poem", (req, res) => {
 
   poems.push(poem);
 
-  res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+  res.render("confirmation", { poem });
 });
 
 // Admin route
