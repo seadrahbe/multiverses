@@ -29,6 +29,11 @@ main {
   margin: 0 auto;
 }
 
+#main-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
 fieldset {
   border: none;
   padding: 0;
