@@ -4,21 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Confirmation</title>
-    <link rel="stylesheet" href="/styles/confirmation.css" type ="text/css" />
+    <link rel="stylesheet" href="/styles/confirmation.css" type="text/css" />
   </head>
   <body>
-    <h1>Thank you for submitting your poem, <%= poem.author %>!</h1>
+    <main class="confirmation">
+      <h1>Thank you for submitting your poem, <%= poem.author %>!</h1>
 
-    <p>Author: <%= poem.author %></p>
-    <p>Title: <%= poem.title %></p>
-    <p>Date of Writing: <%= poem.date %></p>
-    <p>Date of Submission: <%= poem.timestamp %></p>
-    <p>Tags: <%= Array.isArray(poem.tags) ?
-            poem.tags.join(', ') :
-            "None" %></p>
-    <p>Poem:</p>
-    <pre><%= poem.poem_body %></pre>
+      <p>Author: <%= poem.author %></p>
+      <p>Title: <%= poem.title %></p>
+      <p>Date of Writing: <%= poem.date %></p>
+      <p>Date of Submission: <%= poem.timestamp %></p>
+      <p>
+        Tags: <%= Array.isArray(poem.tags) ? poem.tags.join(', ') : "None" %>
+      </p>
+      <p>Poem:</p>
+      <pre><%= poem.poem_body %></pre>
 
-    <a href="/">Return to Home Page</a>
+      <a href="/">Return to Home Page</a>
+    </main>
   </body>
 </html>

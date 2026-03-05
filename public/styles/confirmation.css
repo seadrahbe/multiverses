@@ -4,3 +4,10 @@ body {
 
   color: white;
 }
+
+.confirmation {
+  margin-top: 2rem;
+  max-width: 600px;
+  width: 60%;
+  margin: 0 auto;
+}
