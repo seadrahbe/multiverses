@@ -11,7 +11,7 @@ const PORT = 3009;
 app.use(express.static("public"));
 
 // Set view engine to EJS
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 // "Middleware" allows express to read form data and store it in req.body
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +21,7 @@ const poems = [];
 // Define our main route ('/')
 // Default route
 app.get("/", (req, res) => {
-  res.sendFile(`${import.meta.dirname}/views/home.html`);
+  res.render("home");
 });
 
 // Form route
@@ -30,25 +30,24 @@ app.get("/submit-poem", (req, res) => {
 });
 
 // Poem submission route
-app.post('/submit-poem', (req, res) => {
+app.post("/submit-poem", (req, res) => {
+  const poem = {
+    author: req.body.author,
+    title: req.body.title,
+    tags: req.body.tags ? req.body.tags : "none",
+    date: req.body.date,
+    poem_body: req.body.poem,
+    timestamp: new Date(),
+  };
 
-    const poem = {
-        author: req.body.author,
-        title: req.body.title,
-        tags: req.body.tags ? req.body.tags : "none",
-        date: req.body.date,
-        poem_body: req.body.poem,
-        timestamp: new Date()
-    };
+  poems.push(poem);
 
-    poems.push(poem);
-
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+  res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
 });
 
 // Admin route
 app.get("/admin", (req, res) => {
-  res.render('admin', { poems })
+  res.render("admin", { poems });
 });
 
 // Start server and listen on designated port

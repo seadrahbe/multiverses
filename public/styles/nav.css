@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 1.4rem;
+  height: 8vh;
+  margin-bottom: 0;
+  padding: 1 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00cec9;
+}
