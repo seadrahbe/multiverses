@@ -1,11 +1,12 @@
 // Import the express module
 import express from "express";
 
+// Define a port number where server will listen
+const PORT = 3009;
+
 // Create an express application
 const app = express();
 
-// Define a port number where server will listen
-const PORT = 3009;
 
 // Enable static file serving
 app.use(express.static("public"));
