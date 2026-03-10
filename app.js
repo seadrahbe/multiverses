@@ -1,12 +1,35 @@
 // Import the express module
 import express from "express";
 
-// Define a port number where server will listen
-const PORT = 3009;
+import mysql2 from 'mysql2';
+
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Create an express application
 const app = express();
 
+const pool = mysql2.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
+
+app.get('/db-test', async (req, res) => {
+    try {
+        const poems = await pool.query('SELECT * FROM poems');
+        res.send(poems[0]);
+    } catch (err) {
+       console.error('Database error:', err);
+       res.status(500).send('Database error: ' + err.message);
+    }
+});
+
+// Define a port number where server will listen
+const PORT = 3009;
 
 // Enable static file serving
 app.use(express.static("public"));
@@ -55,8 +78,18 @@ app.post("/submit-poem", (req, res) => {
 });
 
 // Admin route
-app.get("/admin", (req, res) => {
-  res.render("admin", { poems });
+app.get('/admin', async (req, res) => {
+    try {
+        // Fetch all orders from database, newest first
+        const [poems] = await pool.query('SELECT * FROM poems ORDER BY timestamp DESC');  
+
+        // Render the admin page
+        res.render('admin', { poems });        
+
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).send('Error loading orders: ' + err.message);
+    }
 });
 
 // Start server and listen on designated port
