@@ -21,22 +21,24 @@
           </a>
         </div>
 
-        <div class = "poem">
-          <ul class = "poem-info">
-            <li class = "poem-title">Title</li> 
-            <li><strong>Author:</strong> test</li> 
-            <li><strong>Date Written:</strong> test</li>
-          </ul>
+        <% poems.forEach(poem => { %>
+          <div class = "poem">
+            <ul class = "poem-info">
+              <li class = "poem-title"> <%= poem.title %> </li> 
+              <li><strong>Author:</strong> <%= poem.author %> </li> 
+              <li><strong>Date Written:</strong> <%= poem.date %> </li>
+            </ul>
 
-          <p class="poem-body-home">
-            Poem goes here.
-          </p>
+            <p class="poem-body-home">
+              <%= poem.poem %>
+            </p>
 
-          <ul class="poem-tags">
-            <li>tag</li>
-            <li>tag</li>
-          </ul>
-        </div>
+            <ul class="poem-tags">
+              <li><%= poem.tags %></li>
+            </ul>
+
+          </div>
+        <% }) %>
 
       </div>
     </main>

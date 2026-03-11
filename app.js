@@ -5,6 +5,9 @@ import mysql2 from 'mysql2';
 
 import dotenv from 'dotenv';
 
+// Define a port number where server will listen
+const PORT = 3009;
+
 dotenv.config();
 
 // Create an express application
@@ -28,8 +31,6 @@ app.get('/db-test', async (req, res) => {
     }
 });
 
-// Define a port number where server will listen
-const PORT = 3009;
 
 // Enable static file serving
 app.use(express.static("public"));
@@ -44,8 +45,14 @@ const poems = [];
 
 // Define our main route ('/')
 // Default route
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", async(req, res) => {
+
+  // Read all poems from db
+  // newest first
+  let sql = 'SELECT * FROM poems ORDER BY timestamp DESC';
+  const poems = await pool.query(sql);
+
+  res.render('home', { poems : poems[0] });
 });
 
 // Form route
