@@ -32,18 +32,18 @@
       <% if (Object.keys(poems).length != 0) { %>
         
         <% for (let i = poems.length - 1; i >= 0; i--) { %>
-          <section class = "submission">
-            <h3>Submission # </h3>
-            <ul>
-              <li><strong>Title:</strong> <%= poems[i].title %></li>
-              <li><strong>Author:</strong> <%= poems[i].author %></li>
-              <li><strong>Tags:</strong> <%= poems[i].tags %></li>
-              <li><strong>Date Written:</strong> <%= poems[i].date %></li>
-              <li><strong>Poem:</strong> <pre><%= poems[i].poem_body %></pre></li>
-              <li><strong>Timestamp:</strong> <%= poems[i].timestamp %></li>
-            </ul>
-          </section>
-        <% } %>
+        <section class = "submission">
+          <h3>Submission # </h3>
+          <ul>
+            <li><strong>Title:</strong> <%= poems[i].title %></li>
+            <li><strong>Author:</strong> <%= poems[i].author %></li>
+            <li><strong>Tags:</strong> <%= poems[i].tags %></li>
+            <li><strong>Date Written:</strong> <%= poems[i].date %></li>
+            <li><strong>Poem:</strong> <pre><%= poems[i].poem %></pre></li>
+            <li><strong>Timestamp:</strong> <%= poems[i].timestamp %></li>
+          </ul>
+        </section>
+      <% } %>
 
       <% } else { %>
 

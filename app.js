@@ -1,11 +1,35 @@
 // Import the express module
 import express from "express";
 
-// Define a port number where server will listen
-const PORT = 3009;
+import mysql2 from 'mysql2';
+
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Create an express application
 const app = express();
+
+const pool = mysql2.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
+
+app.get('/db-test', async (req, res) => {
+    try {
+        const poems = await pool.query('SELECT * FROM poems');
+        res.send(poems[0]);
+    } catch (err) {
+       console.error('Database error:', err);
+       res.status(500).send('Database error: ' + err.message);
+    }
+});
+
+// Define a port number where server will listen
+const PORT = 3009;
 
 // Enable static file serving
 app.use(express.static("public"));
@@ -30,6 +54,42 @@ app.get("/submit-poem", (req, res) => {
 });
 
 // Poem submission route
+app.post("/submit-poem", async (req, res) => {
+    try {
+        // Get form data from req.body
+        const poem = req.body;         
+
+        // Log the order data (for debugging)
+        console.log('New poem submitted:', poem);
+
+        // SQL INSERT query with placeholders to prevent SQL injection
+        const sql = `INSERT INTO poems(author, title, tags, date, poem) 
+            VALUES (?, ?, ?, ?, ?);`;
+
+      // Parameters array must match the order of ? placeholders
+	    // Make sure your property names match your order names
+        const params = [
+            poem.author,
+            poem.title,
+            Array.isArray(poem.tags) ? poem.tags.join(", ") : "none",
+		        poem.date,
+		        poem.poem
+        ];
+
+        // Execute the query and grab the primary key of the new row
+        const result = await pool.execute(sql, params);
+        console.log('Order saved with ID:', result[0].insertId);
+
+        // Render confirmation page with the adoption data
+        res.render('confirmation', { poem });        
+
+    } catch (err) {
+        console.error('Error saving poem:', err);
+        res.status(500).send('Sorry, there was an error posting your poem. Please try again.');
+    }
+});
+
+/*
 app.post("/submit-poem", (req, res) => {
   const rawTags = req.body.tags ?? "";
   const tagsString = Array.isArray(rawTags) ? rawTags.join(",") :
@@ -53,9 +113,21 @@ app.post("/submit-poem", (req, res) => {
   res.render("confirmation", { poem });
 });
 
+*/
+
 // Admin route
-app.get("/admin", (req, res) => {
-  res.render("admin", { poems });
+app.get('/admin', async (req, res) => {
+    try {
+        // Fetch all orders from database, newest first
+        const [poems] = await pool.query('SELECT * FROM poems ORDER BY timestamp DESC');  
+
+        // Render the admin page
+        res.render('admin', { poems });        
+
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).send('Error loading orders: ' + err.message);
+    }
 });
 
 // Start server and listen on designated port
