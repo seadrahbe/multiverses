@@ -5,6 +5,7 @@ addEventListener("DOMContentLoaded", (event) => {
     // Source - https://stackoverflow.com/a/49916376
     // Posted by Lahiru Jayakody, modified by community. See post 'Timeline' for change history
     // Retrieved 2026-02-24, License - CC BY-SA 4.0
+    
     // Sets max date for date input - S
 
     document.getElementById("date").max = new Date().toLocaleDateString('fr-ca');
@@ -32,26 +33,36 @@ document.getElementById('poem').addEventListener('keydown', function(e) {
 
 /* TAGS FUNCTIONALITY VARIABLES + EVENT LISTENER - S*/
 
+// Declare variables, including hidden tag input, container, and array to store hashtags
 let input = document.querySelector('#tags');
 let hiddenInput = document.getElementById('hidden-tag-input')
 let container = document.querySelector('#tag-container')
 let hashtagArray = [];
 
+// On-press of enter or space, add tag to tag container for display
 input.addEventListener('keyup', () => {
     if ((event.code === 'Space' ||  event.code === 'Enter') && input.value.length > 0) {
+
+        // Visual tag text + text container (p))
         var text = document.createTextNode(input.value);
         var p = document.createElement('p');
+
+        // Add p to parent container and text to p, label p with tag class for styling
         container.appendChild(p);
         p.appendChild(text);
         p.classList.add('tag');
+
+        // Reset input to blank
         input.value = '';
         
+        // Create list of all p tags
         let deleteTags = document.querySelectorAll('.tag');
         
+        // Add event listener to all tags to delete on-click (could be shortened -- return to this for updating)
         for(let i = 0; i < deleteTags.length; i++) {
-        deleteTags[i].addEventListener('click', () => {
-            container.removeChild(deleteTags[i]);
-        });
+            deleteTags[i].addEventListener('click', () => {
+                container.removeChild(deleteTags[i]);
+            });
         }
     }
 });
