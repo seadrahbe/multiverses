@@ -7,7 +7,6 @@ const PORT = 3009;
 // Create an express application
 const app = express();
 
-
 // Enable static file serving
 app.use(express.static("public"));
 
