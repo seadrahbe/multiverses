@@ -46,13 +46,19 @@ const poems = [];
 // Define our main route ('/')
 // Default route
 app.get("/", async(req, res) => {
+  try {
+    // Read all poems from db
+    // newest first
+    let sql = 'SELECT * FROM poems ORDER BY timestamp DESC';
+    const poems = await pool.query(sql);
 
-  // Read all poems from db
-  // newest first
-  let sql = 'SELECT * FROM poems ORDER BY timestamp DESC';
-  const poems = await pool.query(sql);
+    res.render('home', { poems : poems[0] });
 
-  res.render('home', { poems : poems[0] });
+  } catch (err) {
+    console.error('Database error:', err);
+    res.status(500).send('Error loading orders: ' + err.message);
+  }
+
 });
 
 // Form route
