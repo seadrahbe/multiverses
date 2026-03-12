@@ -9,6 +9,7 @@ body {
   background-size: 100% 100%;
   height: 100vh;
   color: #fff;
+  min-width: 330px;
 }
 
 main {
