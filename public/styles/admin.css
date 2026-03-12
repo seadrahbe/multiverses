@@ -59,20 +59,27 @@ div p {
 }
 
 #submissions {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  width: 100%;
   gap: 1.5rem;
   color: black;
+  padding: 1rem;
 }
 
 .submission {
   padding: 1rem;
-  margin: 1rem;
+  width: 100%;
   border: 1px black solid;
   border-radius: 5px;
-  max-width: 25rem;
   background-color: white;
+}
+
+.submission pre {
+    white-space: pre-wrap; /* preserves line breaks but allows wrapping */
 }
 
 .submission h3 {
