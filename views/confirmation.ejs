@@ -18,7 +18,7 @@
 
     <p>Author: <%= poem.author %></p>
     <p>Title: <%= poem.title %></p>
-    <p>Date of Writing: <%= poem.date %></p>
+    <p>Date of Writing: <%= poem.date != null ? poem.date : "Unknown" %></p>
     <p>Date of Submission: <%= poem.timestamp %></p>
     <p>Tags: <%= poem.tags %></p>
     <p>Poem:</p>

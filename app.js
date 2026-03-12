@@ -75,6 +75,11 @@ app.post("/submit-poem", async (req, res) => {
         // Log the order data (for debugging)
         console.log('New poem submitted:', poem);
 
+        // Set poem date to null if empty string
+        if (poem.date == "") {
+          poem.date = null;
+        }
+
         // SQL INSERT query with placeholders to prevent SQL injection
         const sql = `INSERT INTO poems(author, title, tags, date, poem) 
             VALUES (?, ?, ?, ?, ?);`;
@@ -92,6 +97,9 @@ app.post("/submit-poem", async (req, res) => {
         // Execute the query and grab the primary key of the new row
         const result = await pool.execute(sql, params);
         console.log('Order saved with ID:', result[0].insertId);
+
+        // Add timestamp for confirmation page
+        poem.timestamp = new Date();
 
         // Render confirmation page with the adoption data
         res.render('confirmation', { poem });        
