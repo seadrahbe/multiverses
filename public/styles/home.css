@@ -13,7 +13,7 @@ body {
 
 main {
   background-color: rgb(154, 151, 156);
-  max-width: 70%;
+  width: clamp(330px, 80vw, 700px);
   margin: auto;
   min-height: 70%;
   display: flex;
