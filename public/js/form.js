@@ -44,7 +44,7 @@ input.addEventListener('keyup', () => {
     if ((event.code === 'Space' ||  event.code === 'Enter') && input.value.length > 0) {
 
         // Visual tag text + text container (p))
-        var text = document.createTextNode(input.value);
+        var text = document.createTextNode(input.value.trim());
         var p = document.createElement('p');
 
         // Add p to parent container and text to p, label p with tag class for styling

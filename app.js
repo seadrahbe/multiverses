@@ -89,7 +89,7 @@ app.post("/submit-poem", async (req, res) => {
         const params = [
             poem.author,
             poem.title,
-            Array.isArray(poem.tags) ? poem.tags.join(", ") : "none",
+            poem.tags.split(" ").join(", "),
 		        poem.date,
 		        poem.poem
         ];
@@ -97,10 +97,12 @@ app.post("/submit-poem", async (req, res) => {
         // Execute the query and grab the primary key of the new row
         const result = await pool.execute(sql, params);
         console.log('Order saved with ID:', result[0].insertId);
+        console.log(params);
 
         // Add timestamp for confirmation page
         poem.timestamp = new Date();
 
+      
         // Render confirmation page with the adoption data
         res.render('confirmation', { poem });        
 
