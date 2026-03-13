@@ -23,6 +23,7 @@ main {
   font-size: clamp(1.5rem, 5vw, 3rem);
   text-align: center;
   padding-top: 1rem;
+  margin-bottom: .5rem;
 }
 
 h1, h2, h3{
