@@ -34,7 +34,11 @@
             </p>
 
             <ul class="poem-tags">
-              <li><%= poem.tags %></li>
+              <% if (poem.tags != "none") { %>
+                <% poem.tags.split(", ").forEach(tag => {%>
+                <li> <%= tag.trim() %> </li>
+                <%}); %>
+              <% } %>
             </ul>
 
           </div>
