@@ -14,7 +14,7 @@ body {
 
 main {
   background-color: rgb(154, 151, 156);
-  width: clamp(330px, 80vw, 1100px);
+  width: clamp(330px, 80vw, 900px);
   margin: auto;
   min-height: 70%;
   display: flex;
