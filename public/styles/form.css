@@ -119,6 +119,9 @@ button[type="submit"] {
 @media (max-width: 960px) {
   .poem_info.row_2 {
     grid-template-columns: 1fr;
-    gap: 0rem;
+  }
+
+  input[type="date"] {
+    width: 100%;
   }
 }
