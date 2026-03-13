@@ -13,7 +13,7 @@ body {
 }
 
 main {
-  width: clamp(330px, 80vw, 700px);
+  width: clamp(330px, 80vw, 900px);
   background-color: rgb(154, 151, 156);
   margin: auto;
   border-radius: 10px;
