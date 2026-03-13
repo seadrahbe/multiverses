@@ -60,11 +60,13 @@
 
           <!-- <label for="date"> Date of Creation: </label> -->
            <div>
+            <!-- .toISOString is a JS Date object method that returns a string representation of the date if you were curious! -->
             <input
               type="date"
               id="date"
               name="date"
               aria-label="Date of Creation"
+              value="<%= new Date().toISOString().substring(0, 10) %>"
             />
            </div>
           
