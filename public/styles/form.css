@@ -127,6 +127,6 @@ button[type="submit"] {
     min-width: 0;
     -webkit-appearance: none;
     appearance: none;
-    line-height: 2.5;
+    padding: 0.75rem;
   }
 }
