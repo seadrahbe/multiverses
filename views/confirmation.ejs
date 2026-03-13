@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Confirmation</title>
 
+    <link rel="stylesheet" href="/styles/particles.css" type="text/css">
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/confirmation.css" type="text/css" />
   </head>
   <body>
+    <!-- particles.js container --> 
+    <div id="particles-js"></div> 
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js for the library!-->
     <header>
       <h1 id="main-title">MultiVerses</h1>
       <%- include('partials/nav.ejs') %>
@@ -26,5 +30,8 @@
 
       <a href="/">Return to Home Page</a>
     </main>
+
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+    <script src="/js/particles.js" defer></script>
   </body>
 </html>
