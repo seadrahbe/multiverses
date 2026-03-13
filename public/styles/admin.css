@@ -20,7 +20,7 @@ main {
 }
 
 #main-title {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   text-align: center;
   padding-top: 1rem;
 }
