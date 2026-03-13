@@ -30,7 +30,7 @@
             <ul class = "poem-info">
               <li class = "poem-title"> <%= poem.title %> </li> 
               <li><strong>Author:</strong> <%= poem.author %> </li> 
-              <li><strong>Date Written:</strong> <%= poem.date %> </li>
+              <li><strong>Date Written:</strong> <%= (poem.date) ? poem.date.toLocaleDateString() : "Unknown" %> </li>
             </ul>
 
             <p class="poem-body-home">

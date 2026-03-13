@@ -90,7 +90,7 @@ app.post("/submit-poem", async (req, res) => {
             poem.author,
             poem.title,
             poem.tags.split(" ").join(", "),
-		        poem.date,
+		        poem.date.toLocaleDateString(),
 		        poem.poem
         ];
 
@@ -101,6 +101,8 @@ app.post("/submit-poem", async (req, res) => {
 
         // Add timestamp for confirmation page
         poem.timestamp = new Date();
+
+        console.log(poem.timestamp);
 
       
         // Render confirmation page with the adoption data
