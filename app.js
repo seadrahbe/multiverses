@@ -90,7 +90,7 @@ app.post("/submit-poem", async (req, res) => {
             poem.author,
             poem.title,
             poem.tags.split(" ").join(", "),
-		        poem.date.toLocaleDateString(),
+		        poem.date,
 		        poem.poem
         ];
 
