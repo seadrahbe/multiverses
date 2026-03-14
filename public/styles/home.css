@@ -80,6 +80,10 @@ a {
   margin: 0.5rem 0;
 }
 
+.poem-body-home pre {
+    white-space: pre-wrap;
+}
+
 .poem-tags {
   display: flex;
   flex-direction: row;
