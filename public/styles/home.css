@@ -82,6 +82,8 @@ a {
 
 .poem-body-home pre {
     white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .poem-tags {
