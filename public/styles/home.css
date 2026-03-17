@@ -92,6 +92,15 @@ a {
   gap: 1rem;
 }
 
+.poem-tag {
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background: #00cec9;
+}
+
 .poem-info, .poem-tags {
   list-style: none;
 }
