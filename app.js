@@ -89,7 +89,7 @@ app.post("/submit-poem", async (req, res) => {
         const params = [
             poem.author,
             poem.title,
-            poem.tags.split(" ").join(", "),
+            poem.tags.split(" ").join(" "),
 		        poem.date,
 		        poem.poem
         ];
