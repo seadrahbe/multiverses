@@ -41,17 +41,17 @@ let hashtagArray = [];
 
 // On-press of enter or space, add tag to tag container for display
 input.addEventListener('keyup', () => {
-    if ((event.code === 'Space' ||  event.code === 'Enter') && input.value.length > 0) {
+    if ((event.code === 'Space' ||  event.code === 'Enter') && input.value.trim().length > 0) {
 
         // Visual tag text + text container (p))
-        var text = document.createTextNode(input.value.trim());
+        var text = input.value.trim();
         var p = document.createElement('p');
 
         // Add p to parent container and text to p, label p with tag class for styling
-        container.appendChild(p);
-        p.appendChild(text);
+        p.innerHTML = text;
         p.classList.add('tag');
-
+        container.appendChild(p);
+        
         // Reset input to blank
         input.value = '';
         
@@ -96,13 +96,17 @@ document.getElementById("submit_form").onsubmit = () => {
       isValid = false;
   }
 
-  // Add tags
+    // Add tags
     var children = container.children;
     for (var i = 0; i < children.length; i++) {
-        hiddenInput.value += (children[i].innerHTML + " ");
+        if (i < children.length - 1) {
+            hiddenInput.value += (children[i].innerHTML + " ");
+        } else {
+            hiddenInput.value += (children[i].innerHTML);
+        }
     }
 
-  return isValid;
+    return isValid;
 
 }
 

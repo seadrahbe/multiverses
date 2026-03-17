@@ -80,6 +80,8 @@ app.post("/submit-poem", async (req, res) => {
           poem.date = null;
         }
 
+        console.log(poem.tags);
+
         // SQL INSERT query with placeholders to prevent SQL injection
         const sql = `INSERT INTO poems(author, title, tags, date, poem) 
             VALUES (?, ?, ?, ?, ?);`;
@@ -89,7 +91,7 @@ app.post("/submit-poem", async (req, res) => {
         const params = [
             poem.author,
             poem.title,
-            poem.tags.split(" ").join(" "),
+            poem.tags,
 		        poem.date,
 		        poem.poem
         ];
@@ -98,6 +100,8 @@ app.post("/submit-poem", async (req, res) => {
         const result = await pool.execute(sql, params);
         console.log('Order saved with ID:', result[0].insertId);
         console.log(params);
+
+        console.log(poem.tags);
 
         // Add timestamp for confirmation page
         poem.timestamp = new Date();
