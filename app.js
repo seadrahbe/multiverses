@@ -5,6 +5,8 @@ import mysql2 from 'mysql2';
 
 import dotenv from 'dotenv';
 
+import {validateForm} from './validation.js';
+
 // Define a port number where server will listen
 const PORT = 3009;
 
@@ -70,7 +72,17 @@ app.get("/submit-poem", (req, res) => {
 app.post("/submit-poem", async (req, res) => {
     try {
         // Get form data from req.body
-        const poem = req.body;         
+        const poem = req.body;
+
+        // Calling validation.js to validate our form
+        const valid = validateForm(poem);
+
+        // If there are errors, it will not submit
+        if (!valid.isValid) {
+            console.log(valid);
+            res.render('form', {errors: valid.errors});
+            return;
+        }
 
         // Log the order data (for debugging)
         console.log('New poem submitted:', poem);
