@@ -32,7 +32,9 @@
         </div>
 
         <% poems.forEach(poem => { %>
-          <div class = "poem">
+
+
+          <div class = "poem" id = "poem-<%= poem.id %>">
             <ul class = "poem-info">
               <li class = "poem-title"> <%= poem.title %> </li> 
               <hr>
