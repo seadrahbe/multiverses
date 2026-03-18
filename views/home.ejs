@@ -52,6 +52,29 @@
       </div>
     </main>
 
+    <modal id="poem_modal">
+
+      <button id = "close-button">X</button>
+
+      <ul class = "poem-info">
+        <li id = "modal-poem-title"> Temp<%# poem.title %> </li> 
+        <li><strong>Author:</strong> <%# poem.author %> </li> 
+        <li><strong>Date Written:</strong> <%# (poem.date) ? poem.date.toLocaleDateString() : "Unknown" %> </li>
+      </ul>
+
+      <p class ="poem-body-home">
+        <pre>Temp <%# poem.poem %></pre>
+      </p>
+
+      <ul class="poem-tags">
+        <%# if (poem.tags != "none") { %>
+          <%# poem.tags.split(" ").forEach(tag => {%>
+          <li class="poem-tag"> Temp <%# tag.trim() %> </li>
+          <%#}); %>
+        <%# } %>
+      </ul>
+    </modal>
+
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
     <script src="/js/stars.js" defer></script>
   </body>

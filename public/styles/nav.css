@@ -10,6 +10,7 @@ nav {
   justify-content: center;
   height: 8vh;
   /* padding: 1 2rem; */
+  font-family: sans-serif;
 }
 
 .nav-links {
