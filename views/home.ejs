@@ -33,6 +33,9 @@
 
         <% poems.forEach(poem => { %>
           <div class = "poem">
+            <form method="POST" action="/delete-poem/<%= poem.id %>">
+                <button type="submit" class="delete-btn">🗑️</button>
+            </form>
             <ul class = "poem-info">
               <li class = "poem-title"> <%= poem.title %> </li> 
               <li><strong>Author:</strong> <%= poem.author %> </li> 
