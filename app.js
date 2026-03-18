@@ -118,6 +118,18 @@ app.post("/submit-poem", async (req, res) => {
     }
 });
 
+// Delete-poem route
+app.post('/delete-poem/:id', async (req, res) => {
+    try {
+        const sql = 'DELETE FROM poems WHERE id = ?';
+        const params = [req.params.id];
+        await pool.execute(sql, params);
+        res.redirect('/');
+    } catch (err) {
+        console.error('Error deleting poem:', err);
+        res.status(500).send('Sorry, there was an error deleting the poem. Please try again!');
+    }
+})
 /*
 app.post("/submit-poem", (req, res) => {
   const rawTags = req.body.tags ?? "";
