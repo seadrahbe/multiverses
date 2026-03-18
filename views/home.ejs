@@ -38,6 +38,7 @@
             </form>
             <ul class = "poem-info">
               <li class = "poem-title"> <%= poem.title %> </li> 
+              <hr>
               <li><strong>Author:</strong> <%= poem.author %> </li> 
               <li><strong>Date Written:</strong> <%= (poem.date) ? poem.date.toLocaleDateString() : "Unknown" %> </li>
             </ul>

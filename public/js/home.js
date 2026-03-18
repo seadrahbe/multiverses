@@ -6,7 +6,7 @@ addEventListener("DOMContentLoaded", (event) => {
 
   // Get modal from DOM
   modal = document.getElementById("poem_modal");
-
+  
   // Function for opening the modal
   function openModal() {
     modal.style.display = "flex";
