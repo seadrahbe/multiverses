@@ -5,8 +5,8 @@ addEventListener("DOMContentLoaded", (event) => {
   const poems = document.querySelectorAll(".poem");
 
   // Get modal from DOM
-  modal = document.getElementById("poem_modal");
-  
+  const modal = document.getElementById("poem_modal");
+
   // Function for opening the modal
   function openModal() {
     modal.style.display = "flex";

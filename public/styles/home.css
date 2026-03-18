@@ -134,7 +134,7 @@ hr {
 
 /* MODAL CSS */
 
-modal {
+#poem-modal {
    display: none;
    flex-direction: column;
    background-color: white;
