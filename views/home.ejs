@@ -33,6 +33,7 @@
 
         <% poems.forEach(poem => { %>
           <div class = "poem" id = "poem-<%= poem.id %>">
+
             <form method="POST" action="/delete-poem/<%= poem.id %>">
                 <button type="button" class="delete-btn">🗑️</button>
             </form>
@@ -62,7 +63,7 @@
       </div>
     </main>
 
-    <modal id="poem-modal">
+    <modal id= "poem-modal">
 
       <button id = "close-button">X</button>
 
@@ -72,8 +73,8 @@
         <li id = "modal-poem-date"><strong>Date Written:</strong></li>
       </ul>
 
-      <p id ="modal-poem-body">
-        <pre>Temp <%# poem.poem %></pre>
+      <p id ="modal-poem-body"></p>
+        <pre id = "modal-pre">Temp</pre>
       </p>
 
       <ul class="modal-poem-tags">

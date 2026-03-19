@@ -13,13 +13,13 @@ deleteModal.style.display = "flex";
 
 //Assign click listener to each delete button (trashcan)
 document.querySelectorAll(".delete-btn").forEach(btn => {
-btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation(); 
-    poemToDelete = btn.closest("form");
-    openDeleteModal();
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation(); 
+        poemToDelete = btn.closest("form");
+        openDeleteModal();
 
-})
+    })
 })
 
 //Function for closing delete modal
