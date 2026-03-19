@@ -59,11 +59,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     modal_poem.innerHTML = poem_body_html;
 
     // Clone each tag and append to modal tag container
-    poem_tags.forEach(tag => {
-      const clone = tag.cloneNode(true);
-      clone.className = "modal-tag";
-      modal_tags.appendChild(clone);
-    });
+    if (poem_tags) {
+      poem_tags.forEach(tag => {
+        const clone = tag.cloneNode(true);
+        clone.className = "modal-tag";
+        modal_tags.appendChild(clone);
+      });
+    }
 
   }
 

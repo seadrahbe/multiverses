@@ -84,6 +84,10 @@ app.post("/submit-poem", async (req, res) => {
             return;
         }
 
+        if (poem.tags.trim() == "") {
+          poem.tags = "none";
+        }
+
         // Log the order data (for debugging)
         console.log('New poem submitted:', poem);
 
@@ -96,6 +100,8 @@ app.post("/submit-poem", async (req, res) => {
         // SQL INSERT query with placeholders to prevent SQL injection
         const sql = `INSERT INTO poems(author, title, tags, date, poem) 
             VALUES (?, ?, ?, ?, ?);`;
+
+        console.log(poem.tags);
 
       // Parameters array must match the order of ? placeholders
 	    // Make sure your property names match your order names
@@ -111,8 +117,6 @@ app.post("/submit-poem", async (req, res) => {
         const result = await pool.execute(sql, params);
         console.log('Order saved with ID:', result[0].insertId);
         console.log(params);
-
-        console.log(poem.tags);
 
         // Add timestamp for confirmation page
         poem.timestamp = new Date();

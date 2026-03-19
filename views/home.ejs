@@ -47,13 +47,17 @@
 
             <pre class="poem-body-home"><%= poem.poem %></pre>
             <ul class="poem-tags">
-              <% if (poem.tags != "none") { %>
+
+              <%# Checks if there are any tags, then splits them + double checks them, and creates
+              visual tags for each of them. %>
+              <% if (poem.tags && poem.tags.trim() !== "none" && poem.tags.trim() !== ""){ %>
                 <% poem.tags.split(" ").forEach(tag => {%>
-                <li class="poem-tag"> <%= tag.trim() %> </li>
+                 <% if (tag.trim() !== "") { %>
+                  <li class="poem-tag"><%= tag.trim() %></li>
+                 <% } %>
                 <%}); %>
               <% } %>
             </ul>
-
           </div>
         <% }) %>
 
