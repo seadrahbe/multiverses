@@ -66,19 +66,19 @@
       <button id = "close-button">X</button>
 
       <ul class = "poem-info">
-        <li id = "modal-poem-title"> Temp<%# poem.title %> </li> 
-        <li><strong>Author:</strong> <%# poem.author %> </li> 
-        <li><strong>Date Written:</strong> <%# (poem.date) ? poem.date.toLocaleDateString() : "Unknown" %> </li>
+        <li id = "modal-poem-title"></li> 
+        <li id = "modal-poem-author"><strong>Author:</strong></li> 
+        <li id = "modal-poem-date"><strong>Date Written:</strong></li>
       </ul>
 
-      <p class ="poem-body-home">
+      <p id ="modal-poem-body">
         <pre>Temp <%# poem.poem %></pre>
       </p>
 
-      <ul class="poem-tags">
+      <ul class="modal-poem-tags">
         <%# if (poem.tags != "none") { %>
           <%# poem.tags.split(" ").forEach(tag => {%>
-          <li class="poem-tag"> Temp <%# tag.trim() %> </li>
+          <li class="modal-poem-tag"> Temp <%# tag.trim() %> </li>
           <%#}); %>
         <%# } %>
       </ul>
