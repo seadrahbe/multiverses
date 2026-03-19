@@ -1,4 +1,4 @@
-/* POP UP POEM MODAL LOGIC -s */
+/* POP-UP POEM MODAL LOGIC -s */
 
 // Get modal elements from DOM
 const poem_modal = document.getElementById("poem-modal");
@@ -8,7 +8,9 @@ const modal_date = document.getElementById("modal-poem-date");
 const modal_poem = document.getElementById("modal-poem-body");
 const modal_tags = document.querySelector("#modal-poem-tags");
 
+// On-load listener
 document.addEventListener("DOMContentLoaded", (event) => { 
+
   // List to store poems
   const poems = document.querySelectorAll(".poem");
 
@@ -23,7 +25,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Add close event listener to close button 
   close.addEventListener("click", closeModal);
 
-
 });
 
 // Function for opening the modal & displaying info
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Ensures only one poem can be open at a time, avoids extra tag bug
     if (poem_modal.style.display === "flex") return;
 
+    // Prevent propagation
     e.stopPropagation();
 
     // Make modal visible
@@ -40,12 +42,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Disable scroll on body
     document.body.style.overflow = "hidden";
 
-    
-  
+    // Adds listener for click outside of modal
     document.addEventListener("click", handleClickOutside);
 
-
-    // Get relevant elements
+    // Get relevant elements from selected poem
     const poem_title_html = poem.querySelector(".poem-title").innerHTML;
     const poem_author_html = poem.querySelector(".poem-info li:nth-child(3)").innerHTML;
     const poem_date_html = poem.querySelector(".poem-info li:nth-child(4)").innerHTML;
@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     modal_date.innerHTML = poem_date_html;
     modal_poem.innerHTML = poem_body_html;
 
+    // Clone each tag and append to modal tag container
     poem_tags.forEach(tag => {
       const clone = tag.cloneNode(true);
       clone.className = "modal-tag";
@@ -66,20 +67,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   }
 
+  // Handles instance of click outside of modal
   function handleClickOutside(event) {
+
+      // If click not within modal, close
       if (!poem_modal.contains(event.target)) {
         closeModal(); 
       }
   }
 
-    // Function for closing the modal
+  // Function for closing the modal
   function closeModal() {
 
+    // Reset tags to empty
     modal_tags.innerHTML = "";
 
+    // Take modal out of flow
     poem_modal.style.display = "none";
 
+    // Allow scroll
     document.body.style.overflow = "auto";
 
+    // Remove click outside = close event listener
     document.removeEventListener("click", handleClickOutside);
   }
