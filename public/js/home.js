@@ -6,6 +6,7 @@ const modal_title = document.getElementById("modal-poem-title");
 const modal_author = document.getElementById("modal-poem-author");
 const modal_date = document.getElementById("modal-poem-date");
 const modal_poem = document.getElementById("modal-pre");
+const modal_tags = document.querySelector("#modal-poem-tags");
 
 document.addEventListener("DOMContentLoaded", (event) => { 
   // List to store poems
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const poem_author_html = poem.querySelector(".poem-info li:nth-child(3)").innerHTML;
     const poem_date_html = poem.querySelector(".poem-info li:nth-child(4)").innerHTML;
     const poem_body_html = poem.querySelector("pre").innerHTML;
+    let poem_tags = poem.querySelectorAll(".poem-tag");
       
     // Set modal fields to poem element inner HTML
     modal_title.innerHTML = poem_title_html;
@@ -43,11 +45,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     modal_date.innerHTML = poem_date_html;
     modal_poem.innerHTML = poem_body_html;
 
+    poem_tags.forEach(tag => {
+      const clone = tag.cloneNode(true);
+      clone.className = "modal-tag";
+      modal_tags.appendChild(clone);
+    });
 
   }
 
     // Function for closing the modal
   function closeModal() {
+
+    modal_tags.innerHTML = "";
+
     poem_modal.style.display = "none";
 
     document.body.style.overflow = "auto";

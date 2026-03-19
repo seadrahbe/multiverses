@@ -187,7 +187,7 @@ hr {
    background-color: white;
    color: black;
    width: 40%;
-   height: 95%;
+   max-height: 95%;
    position: fixed;
    left: 50%;
    top: 50%; 
