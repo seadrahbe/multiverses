@@ -15,6 +15,7 @@
     <script src="/js/home.js" defer></script>
   </head>
   <body>
+    <div id = "overlay">
     <!-- particles.js container --> 
     <div id="particles-js"></div> 
     <!-- particles.js lib - https://github.com/VincentGarreau/particles.js for the library!-->
@@ -45,10 +46,7 @@
               <li><strong>Date Written:</strong> <%= (poem.date) ? poem.date.toLocaleDateString() : "Unknown" %> </li>
             </ul>
 
-            <p class="poem-body-home">
-              <pre><%= poem.poem %></pre>
-            </p>
-
+            <pre class="poem-body-home"><%= poem.poem %></pre>
             <ul class="poem-tags">
               <% if (poem.tags != "none") { %>
                 <% poem.tags.split(" ").forEach(tag => {%>
@@ -63,26 +61,30 @@
       </div>
     </main>
 
-    <modal id= "poem-modal">
+    <div id = "poem-modal-wrapper">
 
-      <button id = "close-button">X</button>
+      <div id= "poem-modal">
 
-      <ul class = "poem-info">
-        <li id = "modal-poem-title"></li> 
-        <li id = "modal-poem-author"><strong>Author:</strong></li> 
-        <li id = "modal-poem-date"><strong>Date Written:</strong></li>
-      </ul>
+        <button id = "close-button">X</button>
 
-      <p id ="modal-poem-body"></p>
-        <pre id = "modal-pre">Temp</pre>
-      </p>
+        <ul id = "modal-poem-info">
+          <li id = "modal-poem-title"></li> 
+          <hr>
+          <li id = "modal-poem-author"><strong>Author:</strong></li> 
+          <li id = "modal-poem-date"><strong>Date Written:</strong></li>
+        </ul>
 
-      <ul id = "modal-poem-tags">
 
-        <!--<li class="modal-poem-tag"> Temp </li>-->
+        <pre id = "modal-poem-body">Temp</pre>
 
-      </ul>
-    </modal>
+        <ul id = "modal-poem-tags">
+
+          <!--<li class="modal-poem-tag"> Temp </li>-->
+
+        </ul>
+      </div>
+
+    </div>
 
     <div id="delete-modal">
         <div class="delete-modal-container">
@@ -101,5 +103,6 @@
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
     <script src="/js/stars.js" defer></script>
     <script src="/js/delete.js"></script>
+    </div>
   </body>
 </html>

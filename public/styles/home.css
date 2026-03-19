@@ -134,7 +134,7 @@ a {
   box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
 }
 
-.poem-info li {
+.poem-info li, #modal-poem-info li {
   padding: 0.2rem;
 }
 
@@ -159,13 +159,13 @@ hr {
     max-width: 100%;
 }
 
-.poem-tags {
+.poem-tags, #modal-poem-tags{
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-.poem-tag {
+.poem-tag, .modal-tag {
   margin-top: 0.5rem;
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
@@ -175,9 +175,17 @@ hr {
   
 }
 
-.poem-info, .poem-tags {
+.poem-info, #modal-poem-info, .poem-tags, #modal-poem-tags {
   list-style: none;
 }
+
+.poem pre {
+  height: 60px;
+  overflow: hidden;
+  margin-left: 1rem;
+  font-size: 0.75rem;
+}
+
 
 /* MODAL CSS */
 
@@ -192,13 +200,23 @@ hr {
    left: 50%;
    top: 50%; 
    transform: translate(-50%, -50%);
-   border-radius: 10px;
+   border: 10px solid #6d7272;
    padding: 1rem;
    overflow-y: auto;
 }
 
 #modal-poem-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
+}
+
+#modal-poem-info {
+  margin-bottom: 0.75rem;
+}
+
+#modal-poem-body {
+  margin-bottom: 0.75rem;
+  margin-left: 1rem;
+  font-size: 0.75rem;
 }
 
 #close-button {
