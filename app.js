@@ -92,7 +92,6 @@ app.post("/submit-poem", async (req, res) => {
           poem.date = null;
         }
 
-        console.log(poem.tags);
 
         // SQL INSERT query with placeholders to prevent SQL injection
         const sql = `INSERT INTO poems(author, title, tags, date, poem) 
@@ -104,8 +103,8 @@ app.post("/submit-poem", async (req, res) => {
             poem.author,
             poem.title,
             poem.tags,
-		        poem.date,
-		        poem.poem
+		    poem.date,
+		    poem.poem
         ];
 
         // Execute the query and grab the primary key of the new row

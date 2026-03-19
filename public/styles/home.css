@@ -11,10 +11,10 @@ body {
   color: #fff;
   height: 100vh;
   min-width: 330px;
-  font-family: serif;
 }
 
 main {
+  font-family: serif;
   background-color: rgb(154, 151, 156);
   width: clamp(330px, 80vw, 900px);
   margin: auto;
@@ -163,6 +163,7 @@ hr {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  min-height: 30px;
 }
 
 .poem-tag, .modal-tag {
@@ -190,6 +191,7 @@ hr {
 /* MODAL CSS */
 
 #poem-modal {
+   font-family: serif;
    display: none;
    flex-direction: column;
    background-color: white;

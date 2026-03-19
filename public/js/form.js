@@ -43,6 +43,9 @@ let hashtagArray = [];
 input.addEventListener('keyup', () => {
     if ((event.code === 'Space' ||  event.code === 'Enter') && input.value.trim().length > 0) {
 
+        // Display container
+        container.style.display = "flex";
+        
         // Visual tag text + text container (p))
         var text = input.value.trim();
         var p = document.createElement('p');
@@ -62,8 +65,12 @@ input.addEventListener('keyup', () => {
         for(let i = 0; i < deleteTags.length; i++) {
             deleteTags[i].addEventListener('click', () => {
                 container.removeChild(deleteTags[i]);
+                if (container.children.length === 0) {
+                    container.style.display = "none";
+                }
             });
         }
+
     }
 });
 
@@ -100,9 +107,9 @@ document.getElementById("submit_form").onsubmit = () => {
     var children = container.children;
     for (var i = 0; i < children.length; i++) {
         if (i < children.length - 1) {
-            hiddenInput.value += (children[i].innerHTML + " ");
+            hiddenInput.value += (children[i].innerHTML.toLowerCase() + " ");
         } else {
-            hiddenInput.value += (children[i].innerHTML);
+            hiddenInput.value += (children[i].innerHTML.toLowerCase());
         }
     }
 

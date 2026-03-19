@@ -10,9 +10,15 @@ body {
   text-align: center;
 }
 
+main h1 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
 .confirmation {
   margin-top: 2rem;
   max-width: 600px;
   width: 60%;
   margin: 0 auto;
+  font-size: 0.9rem;
 }
