@@ -34,8 +34,9 @@
         <% poems.forEach(poem => { %>
           <div class = "poem" id = "poem-<%= poem.id %>">
             <form method="POST" action="/delete-poem/<%= poem.id %>">
-                <button type="submit" class="delete-btn">🗑️</button>
+                <button type="button" class="delete-btn">🗑️</button>
             </form>
+
             <ul class = "poem-info">
               <li class = "poem-title"> <%= poem.title %> </li> 
               <hr>
@@ -84,7 +85,22 @@
       </ul>
     </modal>
 
+    <div id="delete-modal">
+        <div class="delete-modal-container">
+            <p>Deletions are Forever...</p>
+            <div class="delete-modal-buttons">
+                <button class="confirm-delete">
+                    Confirm
+                </button>
+                <button class="cancel-delete">
+                Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
     <script src="/js/stars.js" defer></script>
+    <script src="/js/delete.js"></script>
   </body>
 </html>

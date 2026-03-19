@@ -1,4 +1,4 @@
-/* MODAL LOGIC -s */
+/* POP UP POEM MODAL LOGIC -s */
 
 addEventListener("DOMContentLoaded", (event) => { 
   // List to store poems
@@ -46,4 +46,4 @@ addEventListener("DOMContentLoaded", (event) => {
   // Add close event listener to close button 
   close.addEventListener("click", closeModal);
 
-})
+});
